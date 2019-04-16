@@ -17,7 +17,6 @@ const ayarlar = require('./ayarlar.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
-const Jimp = require('jimp');
 const db = require('quick.db');
 
 require('./util/eventLoader')(client);
@@ -103,19 +102,6 @@ client.elevation = message => {
   if (message.author.id === ayarlar.sahip) permLevel = 4;
   return permLevel
   };
-
-const activities_list = [
-        "Sunucuyu düzenliyor...",
-    ]; 
-
-
-
-client.on('ready', () => {
-    setInterval(() => {
-        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // Bu Kısımları Ellemeyin
-        client.user.setActivity(activities_list[index]); // Bu Kısımları Ellemeyin.
-    }, 2000); // Selam 1 Saniye = 1000 MiliSaniye Yapar - Kısacası Böyle Bırakırsan - 3 Saniyede 1 Değişir. 
-});
 
 
 
